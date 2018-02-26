@@ -90,12 +90,12 @@ class Word(object):
         :param string encoding: encoding of the xml
 
         """
-        word = unicode(xml.get('WORD'), encoding)
+        word = xml.get('WORD')
         confidence = float(xml.get('CM'))
         return cls(word, confidence)
 
     def __repr__(self):
-        return "<Word(%.2f, %s)>" % (self.confidence, self.word)
+        return "<Word(%.2f, %r)>" % (self.confidence, self.word)
 
     def __unicode__(self):
         return self.word.lower()

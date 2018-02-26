@@ -170,7 +170,7 @@ class Client(threading.Thread):
             data = readable[0].recv(1)
             if data == '\n':
                 break
-            line += unicode(data, self.encoding)
+            line += data
         return line
 
     def _readblock(self):
