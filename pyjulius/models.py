@@ -91,6 +91,9 @@ class Word(object):
 
         """
         word = xml.get('WORD')
+        if isinstance(word, str):
+            # `get` returns `str` or `unicode`
+            word = word.decode(encoding)
         confidence = float(xml.get('CM'))
         return cls(word, confidence)
 
